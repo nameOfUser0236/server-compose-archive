@@ -1,0 +1,9 @@
+version: '3'
+name: certbot
+services:
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ../volumes/certbot/letsencrypt-config:/etc/letsencrypt
+      - ../volumes/certbot/letsencrypt-lib:/var/lib/letsencrypt
+    entrypoint: certonly
