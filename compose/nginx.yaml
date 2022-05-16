@@ -7,7 +7,7 @@ services:
       # static content
       - ../volumes/www:/www:ro
       # config
-      - ../volumes/nginx:/etc/nginx/conf.d:ro
+      - ../volumes/nginx/config:/etc/nginx/conf.d:ro
     ports:
       - "80:80"
       - "443:443"
