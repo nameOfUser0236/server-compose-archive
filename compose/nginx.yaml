@@ -5,7 +5,7 @@ services:
     image: nginx
     volumes:
       # static content
-      - ../volumes/www:/www:ro
+      - ../volumes/nginx/www:/www:ro
       # config
       - ../volumes/nginx/config:/etc/nginx/conf.d:ro
     ports:
