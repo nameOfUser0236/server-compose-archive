@@ -13,5 +13,3 @@ services:
       - "443:443"
     #networks:
     #  - nginx-main
-#networks:
-#  nginx-main:
