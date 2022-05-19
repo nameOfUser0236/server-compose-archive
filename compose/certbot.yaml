@@ -6,6 +6,9 @@ services:
     volumes:
       - ../volumes/certbot/etc:/etc/letsencrypt
       # - ../volumes/certbot/www:/var/lib/letsencrypt
+    ports:
+      - "80:80"
+      - "443:443"
     command: |
       "certonly --staging  --standalone --agree-tos
       --email tech.5hzud@simplelogin.co 
