@@ -8,6 +8,9 @@ services:
       - ../volumes/nginx/www:/www:ro
       # config
       - ../volumes/nginx/config:/etc/nginx/conf.d:ro
+      # ssl
+      - ../volumes/certbot/etc:/etc/letsencrypt:ro
+      # - ../volumes/certbot/www:/var/www/certbot
     ports:
       - "80:80"
       - "443:443"

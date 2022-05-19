@@ -4,6 +4,6 @@ services:
   certbot:
     image: certbot/certbot
     volumes:
-      - ../volumes/certbot/letsencrypt-config:/etc/letsencrypt
-      - ../volumes/certbot/letsencrypt-lib:/var/lib/letsencrypt
-    entrypoint: certonly
+      - ../volumes/certbot/etc:/etc/letsencrypt
+      # - ../volumes/certbot/www:/var/lib/letsencrypt
+    entrypoint: certonly --staging --email tech.5hzud@simplelogin.co --standalone -d 'celebrimbor3791.com' -d '*.celebrimbor3791.com'
