@@ -9,4 +9,4 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    command: "certonly --staging  --standalone --agree-tos --no-eff-email --email tech.5hzud@simplelogin.co -d 'celebrimbor3791.com' -d '*.celebrimbor3791.com'"
+    command: "certonly --staging  --standalone --agree-tos --no-eff-email --email tech.5hzud@simplelogin.co -d 'celebrimbor3791.com' -d '*.celebrimbor3791.com' --preferred-challenges dns"
