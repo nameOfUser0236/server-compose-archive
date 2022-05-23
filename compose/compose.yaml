@@ -1,9 +1,9 @@
 # primary
 version: '3'
-#name: nginx
 services:
   nginx:
     image: nginx
+    restart: always
     volumes:
       # static content
       - ../volumes/nginx/www:/www:ro
@@ -15,5 +15,3 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    #networks:
-    #  - nginx-main
