@@ -15,3 +15,46 @@ services:
     ports:
       - "80:80"
       - "443:443"
+
+  # nextcloud
+  nextcloud:
+    image: nextcloud:apache
+    restart: always
+    volumes:
+      - ../volumes/nextcloud/www:/var/www/html
+    environment:
+      - MYSQL_HOST=mysqldb
+      - REDIS_HOST=redis
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_PASSWORD_FILE=/run/secrets/mysql
+    depends_on:
+      - mysqldb
+      - redis
+    secrets:
+      - mysql-passwd
+
+  mysqldb:
+    image: mariadb
+    restart: always
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    volumes:
+      - ../volumes/nextcloud/db:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/mysql-root
+      - MYSQL_PASSWORD_FILE=/run/secrets/mysql
+    secrets:
+      - mysql-passwd
+      - mysql-root-passwd
+
+  redis:
+    image: redis:alpine
+    restart: always
+
+secrets:
+  mysql-passwd:
+    file: mysql-passwd
+  mysql-root-passwd:
+    file: mysql-root-passwd
