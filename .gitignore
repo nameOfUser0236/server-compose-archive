@@ -1,3 +1,5 @@
 volumes/certbot/**
 volumes/nextcloud/**
 .vscode
+mysql-passwd
+mysql-root-passwd
