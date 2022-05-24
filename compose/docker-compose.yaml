@@ -3,6 +3,7 @@ version: '3.5'
 services:
   nginx:
     image: nginx
+    container_name: nginx
     restart: always
     volumes:
       # static content
@@ -19,6 +20,7 @@ services:
   # nextcloud
   nextcloud:
     image: nextcloud:apache
+    container_name: nextcloud
     restart: always
     volumes:
       - ../volumes/nextcloud/www:/var/www/html
@@ -36,6 +38,7 @@ services:
 
   mysqldb:
     image: mariadb
+    container_name: mysqldb
     restart: always
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
     volumes:
@@ -51,6 +54,7 @@ services:
 
   redis:
     image: redis:alpine
+    container_name: redis
     restart: always
 
 secrets:
