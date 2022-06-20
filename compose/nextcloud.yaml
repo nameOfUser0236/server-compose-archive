@@ -1,23 +1,5 @@
-# primary
 version: '3.5'
 services:
-  nginx:
-    image: nginx
-    container_name: nginx
-    restart: always
-    volumes:
-      # static content
-      - ../volumes/nginx/www:/www:ro
-      # config
-      - ../volumes/nginx/config:/etc/nginx/conf.d:ro
-      # ssl
-      - ../volumes/certbot/etc:/etc/letsencrypt:ro
-      # - ../volumes/certbot/www:/var/www/certbot
-    ports:
-      - "80:80"
-      - "443:443"
-
-  # nextcloud
   nextcloud:
     image: nextcloud:apache
     container_name: nextcloud
@@ -35,7 +17,7 @@ services:
       - redis
     secrets:
       - mysql-passwd
-
+      
   mysqldb:
     image: mariadb
     container_name: mysqldb

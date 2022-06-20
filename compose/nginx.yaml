@@ -1,0 +1,21 @@
+version: '3.5'
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    restart: always
+    volumes:
+      # static content
+      - ../volumes/nginx/www:/www:ro
+      # config
+      - ../volumes-static/nginx/config:/etc/nginx/conf.d:ro
+      # ssl
+      - ../volumes/certbot/etc:/etc/letsencrypt:ro
+      # - ../volumes/certbot/www:/var/www/certbot
+    ports:
+      - "80:80"
+      - "443:443"
+networks:
+  default:
+    external:
+      name: server-main
