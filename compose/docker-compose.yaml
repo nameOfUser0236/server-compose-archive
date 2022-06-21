@@ -29,7 +29,7 @@ services:
       - REDIS_HOST=redis
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=nextcloud
-      - MYSQL_PASSWORD_FILE=/run/secrets/mysql
+      - MYSQL_PASSWORD_FILE=/run/secrets/mysql-passwd
     depends_on:
       - mysqldb
       - redis
@@ -46,8 +46,8 @@ services:
     environment:
       - MYSQL_DATABASE=nextcloud
       - MYSQL_USER=nextcloud
-      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/mysql-root
-      - MYSQL_PASSWORD_FILE=/run/secrets/mysql
+      - MYSQL_ROOT_PASSWORD_FILE=/run/secrets/mysql-root-passwd
+      - MYSQL_PASSWORD_FILE=/run/secrets/mysql-passwd
     secrets:
       - mysql-passwd
       - mysql-root-passwd
