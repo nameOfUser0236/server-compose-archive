@@ -6,7 +6,7 @@ services:
     restart: always
     volumes:
       # static content
-      - ../volumes/nginx/www:/www:ro
+      - ../volumes-static/nginx/www:/www:ro
       # config
       - ../volumes-static/nginx/config:/etc/nginx/conf.d:ro
       # ssl
