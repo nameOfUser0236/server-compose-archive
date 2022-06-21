@@ -39,8 +39,15 @@ services:
     container_name: redis
     restart: always
 
+# db passwords
 secrets:
   mysql-passwd:
     file: mysql-passwd
   mysql-root-passwd:
     file: mysql-root-passwd
+
+# network to proxy
+networks:
+  default:
+    external:
+      name: server-main
