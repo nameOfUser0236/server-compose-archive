@@ -1,4 +1,3 @@
 volumes/**
 .vscode
-mysql-passwd
-mysql-root-passwd
+**/**-passwd
